@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const album = require('../models/albumModel');
+const album = require('../models/listModel');
 
 /**
  * @api public
