@@ -9,7 +9,7 @@ const album = require('../models/listModel');
  * @description 앨범 리스트 제공 API
  * @returns {json[array]}
  */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
   res
     .status(200)
     .json(album.jsonList);
