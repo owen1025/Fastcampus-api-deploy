@@ -12,11 +12,16 @@ const album = require('../models/listModel');
  * @returns {json[array]}
  */
 router.get('/', async (req, res) => {
-  const listData = await album.jsonList();
+  try {
+    const listData = await album.jsonList();
 
-  res
-    .status(200)
-    .json(listData);
+    res
+      .status(200)
+      .json(listData);
+  } catch(error) {
+    res
+      .sendStatus(500);
+  }
 });
 
 module.exports = router;
