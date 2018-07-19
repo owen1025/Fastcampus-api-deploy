@@ -3,6 +3,8 @@ var router = express.Router();
 
 const multer = require('multer')();
 
+const userModel = require('../models/userModel');
+
 /**
  * @api public
  * @method POST
@@ -10,11 +12,19 @@ const multer = require('multer')();
  * @param {(body) string} [email] 유저 이메일
  * @param {(body) string} [password] 유저 패스워드
  */
-router.post('/login', multer.array(), (req, res) => {
+router.post('/login', multer.array(), async (req, res) => {
   const { email, password } = req.body;
 
-  res
-    .sendStatus(200);
+  try {
+    const loginResult = await userModel.login(email, password);
+
+    res
+      .status(loginResult.statusCode)
+      .json(loginResult.msg);
+  } catch(error) {
+    res
+      .sendStatus(500);
+  }
 });
 
 /**
@@ -24,11 +34,19 @@ router.post('/login', multer.array(), (req, res) => {
  * @param {(body) string} [email] 유저 이메일
  * @param {(body) string} [password] 유저 패스워드
  */
-router.post('/join', multer.array(), (req, res) => {
+router.post('/join', multer.array(), async (req, res) => {
   const { email, password } = req.body;
 
-  res
-    .sendStatus(201);
+  try {
+    await userModel
+      .join(email, password);
+
+    res
+      .sendStatus(201);
+  } catch(error) {
+    res
+      .sendStatus(500);
+  }
 });
 
 module.exports = router;
