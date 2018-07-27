@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const album = require('../models/albumModel');
+const listModel = require('../models/listModel');
 
 /**
  * @api public
@@ -12,7 +12,7 @@ const album = require('../models/albumModel');
 router.get('/', function(req, res, next) {
   res
     .status(200)
-    .json(album.jsonList);
+    .json(listModel.jsonList);
 });
 
 module.exports = router;
