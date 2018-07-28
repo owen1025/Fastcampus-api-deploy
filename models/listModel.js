@@ -6,12 +6,12 @@ module.exports = {
      */
     albumJsonList: [
         {
-            header          : 'api-list-test',
+            header          : 'api-list-test1',
             description     : 'api-list-description1',
             imgUrl          : 'https://s3.ap-northeast-2.amazonaws.com/fastcampus-s3-test-bucket/fastcampusImg.png'
         },
         {
-            header          : 'api-list-test1',
+            header          : 'api-list-test2',
             description     : 'api-list-description2',
             imgUrl          : 'https://s3.ap-northeast-2.amazonaws.com/fastcampus-s3-test-bucket/subwayImg.png'
         },
