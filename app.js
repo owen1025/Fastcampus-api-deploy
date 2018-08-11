@@ -10,7 +10,7 @@ var listRouter = require('./routes/listRouter');
 var userRouter = require('./routes/userRouter');
 
 var app = express();
-
+console.log('test');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
